@@ -1,0 +1,19 @@
+<div>
+  <h2>Players</h2>
+  <ul>
+    <li *ngFor="let player of players">
+      {{ player.name }} - {{ player.position }} - Touchdown Passes: {{ player.touchdownPasses }} - Rushing Yards: {{ player.rushingYards }}
+      <button (click)="deletePlayer(player._id)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Query Players</h2>
+  <label for="queryType">Query Type:</label>
+  <select [(ngModel)]="queryType" id="queryType">
+    <option value="mostTouchdownPasses">Most Touchdown Passes</option>
+    <option value="mostRushingYards">Most Rushing Yards</option>
+  </select>
+  <button (click)="performQuery()">Perform Query</button>
+</div>
